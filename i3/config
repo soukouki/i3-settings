@@ -197,15 +197,15 @@ bindsym $mod+7 workspace number $ws7
 mode "check for starting discord [retype: exec discord]" {
         bindsym $mod+8 workspace number $ws8; exec "discord"
 }
-bindsym $mod+8 exec "~/.config/i3/scripts/check-and-start.sh Discord discord 8"
+bindsym $mod+8 exec "~/.config/i3/check-and-start.sh Discord discord 8"
 mode "check for starting slack [retype: exec slack]" {
         bindsym $mod+9 workspace number $ws9;  exec "slack"
 }
-bindsym $mod+9 exec "~/.config/i3/scripts/check-and-start.sh slack slack 9"
+bindsym $mod+9 exec "~/.config/i3/check-and-start.sh slack slack 9"
 mode "check for starting spotify [retype: exec spotify]" {
         bindsym $mod+0 workspace number $ws10; exec "spotify & (sleep 0.3; wezterm)"
 }
-bindsym $mod+0 exec "~/.config/i3/scripts/check-and-start.sh spotify spotify 10"
+bindsym $mod+0 exec "~/.config/i3/check-and-start.sh spotify spotify 10"
 
 
 # move focused container to workspace
