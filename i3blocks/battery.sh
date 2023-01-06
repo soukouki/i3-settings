@@ -27,7 +27,7 @@ function get_battery_actual() {
   local now=$(cat '/sys/class/power_supply/BAT0/charge_now')
   local full=$(cat '/sys/class/power_supply/BAT0/charge_full_design')
 
-  echo "scale=1; $now / $full * 100" | bc
+  echo "scale=1; ($now * 100) / $full" | bc
 }
 
 function online() {
