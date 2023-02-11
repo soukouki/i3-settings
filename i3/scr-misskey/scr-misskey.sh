@@ -11,6 +11,6 @@ rm ~/tmp/scr-misskey.png ~/tmp/scr-misskey.jpg
 # take screenshot
 
 scrot -u ~/tmp/scr-misskey.png
-convert ~/tmp/scr-misskey.png ~/tmp/scr-misskey.jpg -quality 80
+convert ~/tmp/scr-misskey.png -quality 80 ~/tmp/scr-misskey.jpg
 
 wezterm start --always-new-process ~/.config/i3/scr-misskey/console.sh
