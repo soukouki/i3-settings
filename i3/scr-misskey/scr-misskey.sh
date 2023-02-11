@@ -10,6 +10,6 @@
 rm ~/tmp/scr-misskey.png
 # take screenshot
 
-scrot ~/tmp/scr-misskey.png
+scrot -u ~/tmp/scr-misskey.png
 
 wezterm start --always-new-process ~/.config/i3/scr-misskey/console.sh
