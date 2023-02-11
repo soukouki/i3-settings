@@ -66,7 +66,8 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal -fg "rgb:b2/b2/b2" -bg "rgb:00/00/10"
 bindsym $mod+Return exec wezterm
-bindsym Print exec "scrot"
+bindsym Print       exec "scrot -c"
+bindsym $mod+m      exec "~/.config/i3/scr-misskey/scr-misskey.sh"
 
 bindsym $mod+Shift+v exec "vivaldi-stable"
 
@@ -193,7 +194,10 @@ bindsym $mod+3 workspace number $ws3
 bindsym $mod+4 workspace number $ws4
 bindsym $mod+5 workspace number $ws5
 bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
+mode "check for starting obsidian [retype: exec obsidian]" {
+        bindsym $mod+7 workspace number $ws7; exec "obsidian"
+}
+bindsym $mod+7 exec "~/.config/i3/check-and-start.sh obsidian obsidian $ws7"
 mode "check for starting discord [retype: exec discord]" {
         bindsym $mod+8 workspace number $ws8; exec "discord"
 }
