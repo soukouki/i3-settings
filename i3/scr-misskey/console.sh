@@ -1,7 +1,7 @@
 
 source ~/.config/i3/scr-misskey/config.sh
 
-wezterm imgcat ~/tmp/scr-misskey.png
+wezterm imgcat ~/tmp/scr-misskey.jpg
 
 echo ""
 echo "Enter message (If you don't post, press enter)"
@@ -33,7 +33,7 @@ file_id=$(curl "${misskey_root}/drive/files/create" \
   -H 'content-type: multipart/form-data' \
   -F i="${misskey_token}" \
   -F folderId="${folder_id}" \
-  -F file=@${HOME}/tmp/scr-misskey.png \
+  -F file=@${HOME}/tmp/scr-misskey.jpg \
   -F name=$(date --iso-8601=seconds) | jq -r ".id")
 
 echo "file_id: ${file_id}"
