@@ -10,9 +10,9 @@
 
 source ~/.config/i3/scr-misskey/config.sh
 
-# rm ~/tmp/scr-misskey.png ~/tmp/scr-misskey.jpg
+rm ~/tmp/scr-misskey.png ~/tmp/scr-misskey.jpg
 
-# scrot -u ~/tmp/scr-misskey.png
+scrot -u ~/tmp/scr-misskey.png
 convert ~/tmp/scr-misskey.png -quality 80 ~/tmp/scr-misskey.jpg
 
 # display image by feh
@@ -29,21 +29,21 @@ channels=$(curl "${misskey_root}/channels/followed" \
 
 # lines start with "#" are comments
 # "---" is separator
-# exec 3>&1
-# cat << EOF > ~/tmp/scr-misskey.txt
-# # Feed message (If you don't post, don't input anything)
+exec 3>&1
+cat << EOF > ~/tmp/scr-misskey.txt
+# Feed message (If you don't post, don't input anything)
 
 
 
-# ---
-# # Which channel do you want to post? (If you don't want, don't input anything)
-# # You are following these channels: ${channels}
+---
+# Which channel do you want to post? (If you don't want, don't input anything)
+# You are following these channels: ${channels}
 
 
 
-# ---
-# EOF
-# exec 3>&-
+---
+EOF
+exec 3>&-
 
 # edit text file by vim
 
