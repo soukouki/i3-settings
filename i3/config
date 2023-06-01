@@ -12,7 +12,7 @@
 
 # https://qiita.com/atsuya0/items/f4f2e34560afd22e48a3 より
 set $background #20242b
-set $foreground #c0c5ce
+set $foreground #d0d3d8
 set $secondary #3f4751
 set $black #2b303b
 set $red #bf616a
@@ -21,7 +21,7 @@ set $yellow #ebcb8b
 set $blue #8fa1b3
 set $magenta #b48ead
 set $cyan #96b5b4
-set $white #c0c5ce
+set $white #d0d3d8
 
 set $mod Mod1
 set $modsub Mod4
@@ -90,6 +90,7 @@ mode $i3_command {
 }
 
 bindsym $mod+Shift+s exec "systemctl suspend"
+bindsym $mod+Ctrl+s  exec "i3lock -c 000000 && systemctl suspend"
 
 set $logout "logout [p: poweroff] [r: reboot] [s: suspend] [e: exit]"
 bindsym $mod+Shift+e mode $logout
@@ -254,7 +255,7 @@ bindsym $mod+r mode "resize"
 # https://qiita.com/atsuya0/items/f4f2e34560afd22e48a3 より
 bar {
     status_command i3blocks
-    font pango:Hack Regular 7
+    font pango:Hack Regular 7.5
     mode dock
     position top
     separator_symbol " │ "
