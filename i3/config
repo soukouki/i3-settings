@@ -267,7 +267,7 @@ bar {
         background $background
         focused_background $background
         statusline $blue
-        focused_statusline $blue
+        focused_statusline $white
         separator $secondary
         focused_separator $secondary
         # 左からborder, bg, fg
