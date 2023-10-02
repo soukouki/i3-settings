@@ -198,7 +198,8 @@ bindsym $mod+6 workspace number $ws6
 mode "check for starting obsidian [retype: exec obsidian]" {
         bindsym $mod+7 workspace number $ws7; exec "obsidian"
 }
-bindsym $mod+7 exec "~/.config/i3/check-and-start.sh obsidian obsidian $ws7"
+bindsym $mod+7 exec "~/.config/i3/check-and-start.sh electron obsidian $ws7"
+# obsidianのプロセス名はelectronだったので、やむなく
 mode "check for starting discord [retype: exec discord]" {
         bindsym $mod+8 workspace number $ws8; exec "discord"
 }
