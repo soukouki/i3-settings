@@ -95,7 +95,7 @@ mode $i3_command {
 }
 
 bindsym $mod+Shift+s exec "systemctl suspend; sleep 1; ~/i3-settings/wallpaper.sh"
-bindsym $mod+Ctrl+s  exec "i3lock -c 111111 && systemctl suspend; sleep 1; ~/i3-settings/wallpaper.sh"
+bindsym $mod+Ctrl+s  exec "i3lock-fancy && systemctl suspend; sleep 1; ~/i3-settings/wallpaper.sh"
 
 set $logout "logout [p: poweroff] [r: reboot] [s: suspend] [e: exit]"
 bindsym $mod+Shift+e mode $logout
