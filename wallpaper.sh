@@ -31,9 +31,9 @@ function coefficient() {
 function sunrise() {
     current_date=$(date +"%j")
     sunrise_difference=$((($(date -d "$summer_solstice_sunrise" +"%s") - $(date -d "$winter_solstice_sunrise" +"%s")) / 182))
-    current_sunrise=$(date -d "$winter_solstice_sunrise + $sunrise_interpolation.0 seconds" +"%H:%M")
     coefficient=$(coefficient)
     sunrise_interpolation=$(echo "scale=0; $coefficient * 182 * $sunrise_difference" | bc)
+    current_sunrise=$(date -d "$winter_solstice_sunrise+0900 + $sunrise_interpolation seconds" +"%H:%M")
     echo $current_sunrise
 }
 
@@ -42,7 +42,7 @@ function sunset() {
     sunset_difference=$((($(date -d "$summer_solstice_sunset" +"%s") - $(date -d "$winter_solstice_sunset" +"%s")) / 182))
     coefficient=$(coefficient)
     sunset_interpolation=$(echo "scale=0; $coefficient * 182.0 * $sunset_difference" | bc)
-    current_sunset=$(date -d "$winter_solstice_sunset + $sunset_interpolation.0 seconds" +"%H:%M")
+    current_sunset=$(date -d "$winter_solstice_sunset+0900 + $sunset_interpolation seconds" +"%H:%M")
     echo $current_sunset
 }
 
@@ -58,9 +58,13 @@ set_wallpaper() {
 
 # 現在の時刻が日出・日没の2時間以内、昼間、夜間の3つに場合分け
 current_time=$(date +"%H:%M")
+echo "current time: $current_time"
 sunrise_time=$(sunrise)
+echo "sunrise time: $sunrise_time"
 sunset_time=$(sunset)
-if [[ $current_time > $(date -d "$sunrize_time+0900 + 2 hours" +"%H:%M") && $current_time < $(date -d "$sunset_time+0900 - 2 hours" +"%H:%M") ]]; then
+echo "sunset time: $sunset_time"
+
+if [[ $current_time > $(date -d "$sunrise_time+0900 + 2 hours" +"%H:%M") && $current_time < $(date -d "$sunset_time+0900 - 2 hours" +"%H:%M") ]]; then
     # 昼間
     set_wallpaper "$day_directory"
 elif [[ $current_time > $(date -d "$sunset_time+0900 + 2 hours" +"%H:%M") || $current_time < $(date -d "$sunrize_time+0900 - 2 hours" +"%H:%M") ]]; then
