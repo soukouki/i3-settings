@@ -66,11 +66,14 @@ echo "sunset time: $sunset_time"
 
 if [[ $current_time > $(date -d "$sunrise_time+0900 + 2 hours" +"%H:%M") && $current_time < $(date -d "$sunset_time+0900 - 2 hours" +"%H:%M") ]]; then
     # 昼間
+    echo "daytime"
     set_wallpaper "$day_directory"
-elif [[ $current_time > $(date -d "$sunset_time+0900 + 2 hours" +"%H:%M") || $current_time < $(date -d "$sunrize_time+0900 - 2 hours" +"%H:%M") ]]; then
+elif [[ $current_time > $(date -d "$sunset_time+0900 + 2 hours" +"%H:%M") || $current_time < $(date -d "$sunrise_time+0900 - 2 hours" +"%H:%M") ]]; then
     # 夜間
+    echo "nighttime"
     set_wallpaper "$night_directory"
 else
     # 日出時刻から日没時刻の2時間以内
+    echo "sunrise or sunset"
     set_wallpaper "$sunset_directory"
 fi
