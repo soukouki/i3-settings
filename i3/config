@@ -52,7 +52,7 @@ exec --no-startup-id nm-applet
 # 影はすべて消す
 exec --no-startup-id xcompmgr -c -r 0 -o 0 -l 0 -t 0 -I 0 -O 0
 
-exec --no-startup-id "~/i3-settings/wallpaper.sh"
+exec --no-startup-id "~/i3-settings/sou7-wallpaper.sh update"
 
 for_window [title="^.*"] border pixel 1
 
@@ -94,8 +94,8 @@ mode $i3_command {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+Shift+s exec "systemctl suspend; sleep 1; ~/i3-settings/wallpaper.sh"
-bindsym $mod+Ctrl+s  exec "i3lock-fancy && systemctl suspend; sleep 1; ~/i3-settings/wallpaper.sh"
+bindsym $mod+Shift+s exec "systemctl suspend; sleep 1; ~/i3-settings/sou7-wallpaper.sh update"
+bindsym $mod+Ctrl+s  exec "i3lock-fancy && systemctl suspend; sleep 1; ~/i3-settings/sou7-wallpaper.sh update"
 
 set $logout "logout [p: poweroff] [r: reboot] [s: suspend] [e: exit]"
 bindsym $mod+Shift+e mode $logout

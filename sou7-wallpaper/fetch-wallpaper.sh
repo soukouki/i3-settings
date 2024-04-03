@@ -8,9 +8,6 @@ summer_solstice_sunset="19:05"
 winter_solstice_sunrise="6:56"
 winter_solstice_sunset="16:26"
 
-# よしなに変える
-export DISPLAY=:0
-
 function coefficient() {
     current_date=$(date +"%j")
     # 夏至(1.0)、冬至(0.0)として、どちらに近いのか係数を計算
@@ -51,29 +48,30 @@ day_directory="/home/sou7/Pictures/day/"
 sunset_directory="/home/sou7/Pictures/sunset/"
 night_directory="/home/sou7/Pictures/night/"
 
-# fehを使ってデスクトップの背景を設定する関数
-set_wallpaper() {
-    feh --bg-fill --randomize $1
-}
-
 # 現在の時刻が日出・日没の2時間以内、昼間、夜間の3つに場合分け
 current_time=$(date +"%H:%M")
-echo "current time: $current_time"
+echo "current time: $current_time" >&2
 sunrise_time=$(sunrise)
-echo "sunrise time: $sunrise_time"
+echo "sunrise time: $sunrise_time" >&2
 sunset_time=$(sunset)
-echo "sunset time: $sunset_time"
+echo "sunset time: $sunset_time" >&2
 
 if [[ $current_time > $(date -d "$sunrise_time+0900 + 2 hours" +"%H:%M") && $current_time < $(date -d "$sunset_time+0900 - 2 hours" +"%H:%M") ]]; then
     # 昼間
-    echo "daytime"
-    set_wallpaper "$day_directory"
+    echo "daytime" >&2
+    file_count=$(ls -1 "$day_directory" | wc -l)
+    index=$((RANDOM % file_count + 1))
+    echo $day_directory$(ls "$day_directory" | sed -n ${index}p)
 elif [[ $current_time > $(date -d "$sunset_time+0900 + 2 hours" +"%H:%M") || $current_time < $(date -d "$sunrise_time+0900 - 2 hours" +"%H:%M") ]]; then
     # 夜間
-    echo "nighttime"
-    set_wallpaper "$night_directory"
+    echo "nighttime" >&2
+    file_count=$(ls -1 "$night_directory" | wc -l)
+    index=$((RANDOM % file_count + 1))
+    echo $night_directory$(ls "$night_directory" | sed -n ${index}p)
 else
     # 日出時刻から日没時刻の2時間以内
-    echo "sunrise or sunset"
-    set_wallpaper "$sunset_directory"
+    echo "sunrise or sunset" >%2
+    file_count=$(ls -1 "$sunset_directory" | wc -l)
+    index=$((RANDOM % file_count + 1))
+    echo $sunset_directory$(ls "$sunset_directory" | sed -n ${index}p)
 fi
