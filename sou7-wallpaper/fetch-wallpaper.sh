@@ -70,7 +70,7 @@ elif [[ $current_time > $(date -d "$sunset_time+0900 + 2 hours" +"%H:%M") || $cu
     echo $night_directory$(ls "$night_directory" | sed -n ${index}p)
 else
     # 日出時刻から日没時刻の2時間以内
-    echo "sunrise or sunset" >%2
+    echo "sunrise or sunset" >&2
     file_count=$(ls -1 "$sunset_directory" | wc -l)
     index=$((RANDOM % file_count + 1))
     echo $sunset_directory$(ls "$sunset_directory" | sed -n ${index}p)
