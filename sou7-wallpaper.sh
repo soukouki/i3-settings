@@ -11,7 +11,8 @@ function fetch_origin_file() {
   if [ ! -d "$tmpdir" ]; then
     mkdir "$tmpdir"
   fi
-  cp $(sou7-wallpaper/fetch-wallpaper.sh) $tmpdir/origin.jpg
+  cd "$(dirname "$(readlink -f "$0")")"
+  cp "$(sou7-wallpaper/fetch-wallpaper.sh)" "$tmpdir/origin.jpg"
 }
 
 if [ "$1" = "update" ]; then
