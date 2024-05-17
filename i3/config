@@ -95,7 +95,7 @@ mode $i3_command {
 }
 
 bindsym $mod+Shift+s exec "systemctl suspend; sleep 1; ~/i3-settings/sou7-wallpaper.sh update"
-bindsym $mod+Ctrl+s  exec "i3lock-fancy && systemctl suspend; sleep 1; ~/i3-settings/sou7-wallpaper.sh update"
+bindsym $mod+Ctrl+s  exec "(((RANDOM % 5 == 0)) && i3lock-fancy -g || ((RANDOM % 4 == 0)) && i3lock-fancy -p || i3lock-fancy) && systemctl suspend; sleep 1; ~/i3-settings/sou7-wallpaper.sh update"
 
 set $logout "logout [p: poweroff] [r: reboot] [s: suspend] [e: exit]"
 bindsym $mod+Shift+e mode $logout
@@ -192,6 +192,16 @@ set $ws7 7
 set $ws8 8
 set $ws9 9
 set $ws10 10
+set $ws11 11
+set $ws12 12
+set $ws13 13
+set $ws14 14
+set $ws15 15
+set $ws16 16
+set $ws17 17
+set $ws18 18
+set $ws19 19
+set $ws20 20
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -218,6 +228,16 @@ mode "check for starting spotify [retype: exec spotify]" {
 }
 bindsym $mod+0 exec "~/.config/i3/check-and-start.sh spotify spotify $ws10"
 
+bindsym $mod+Ctrl+1 workspace number $ws11
+bindsym $mod+Ctrl+2 workspace number $ws12
+bindsym $mod+Ctrl+3 workspace number $ws13
+bindsym $mod+Ctrl+4 workspace number $ws14
+bindsym $mod+Ctrl+5 workspace number $ws15
+bindsym $mod+Ctrl+6 workspace number $ws16
+bindsym $mod+Ctrl+7 workspace number $ws17
+bindsym $mod+Ctrl+8 workspace number $ws18
+bindsym $mod+Ctrl+9 workspace number $ws19
+bindsym $mod+Ctrl+0 workspace number $ws20
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -230,6 +250,17 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+bindsym $mod+Ctrl+Shift+1 move container to workspace number $ws11
+bindsym $mod+Ctrl+Shift+2 move container to workspace number $ws12
+bindsym $mod+Ctrl+Shift+3 move container to workspace number $ws13
+bindsym $mod+Ctrl+Shift+4 move container to workspace number $ws14
+bindsym $mod+Ctrl+Shift+5 move container to workspace number $ws15
+bindsym $mod+Ctrl+Shift+6 move container to workspace number $ws16
+bindsym $mod+Ctrl+Shift+7 move container to workspace number $ws17
+bindsym $mod+Ctrl+Shift+8 move container to workspace number $ws18
+bindsym $mod+Ctrl+Shift+9 move container to workspace number $ws19
+bindsym $mod+Ctrl+Shift+0 move container to workspace number $ws20
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
