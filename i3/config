@@ -70,7 +70,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal -fg "rgb:b2/b2/b2" -bg "rgb:00/00/10"
-bindsym $mod+Return exec wezterm
+bindsym $mod+Return exec xfce4-terminal
 bindsym Print       exec "scrot -c"
 bindsym $mod+m      exec "~/.config/i3/scr-misskey/scr-misskey.sh"
 
@@ -224,7 +224,7 @@ mode "check for starting slack [retype: exec slack]" {
 }
 bindsym $mod+9 exec "~/.config/i3/check-and-start.sh slack slack $ws9"
 mode "check for starting spotify [retype: exec spotify]" {
-        bindsym $mod+0 workspace number $ws10; exec "spotify & (sleep 0.3; wezterm)"
+        bindsym $mod+0 workspace number $ws10; exec "spotify & (sleep 0.3; xfce4-terminal)"
 }
 bindsym $mod+0 exec "~/.config/i3/check-and-start.sh spotify spotify $ws10"
 
