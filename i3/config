@@ -71,7 +71,7 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal -fg "rgb:b2/b2/b2" -bg "rgb:00/00/10"
 bindsym $mod+Return exec xfce4-terminal
-bindsym Print       exec "scrot -c"
+bindsym Print       exec "maim -s ~/$(date \\"+%Y-%m-%d_%H-%M-%S\\").png"
 bindsym $mod+m      exec "~/.config/i3/scr-misskey/scr-misskey.sh"
 
 bindsym $mod+Shift+v exec "vivaldi-stable"
