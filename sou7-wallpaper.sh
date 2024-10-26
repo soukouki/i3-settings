@@ -25,8 +25,8 @@ fi
 current_date=$(date "+%Y-%m-%d\n%H:%M")
 
 convert "$tmpdir/origin.jpg" \
-  -fill "#fff6" -pointsize 200 -gravity SouthWest -annotate +50+350 $(date "+%Y-%m-%d") \
-  -fill "#fff6" -pointsize 300 -gravity SouthWest -annotate +50+50 $(date "+%H:%M") \
+  -fill "#fff6" -pointsize 200 -gravity SouthWest -font "Klee-One-Regular" -annotate +50+350 $(date "+%Y-%m-%d") \
+  -fill "#fff6" -pointsize 300 -gravity SouthWest -font "Klee-One-Regular" -annotate +50+50 $(date "+%H:%M") \
   "$tmpdir/wallpaper.jpg"
 
 
