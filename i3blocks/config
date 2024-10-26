@@ -37,13 +37,6 @@ command=xbacklight -get | xargs printf '%.0f%%\n'
 interval=once
 signal=2
 
-[network]
-label= 
-#うまく動かなかったのでとりあえずSSIDだけ表示
-#command=[[ -n $(ip link show up dev wlp4s0) ]] && which wpa_cli &> /dev/null && echo "$({ echo 'status'; echo 'quit'; } | wpa_cli -i wlp4s0 | grep '^ssid=' | cut -d= -f2) : $(cat /proc/net/wireless | tail -1 | tr -s ' ' | cut -d' ' -f4 | sed 's/\./dBm/')"
-command=nmcli -f IN-USE,SSID dev wifi | grep '*' | awk '{print $2}'
-interval=10
-
 [date]
 label=
 command=date +'%Y-%m-%d %H-%M-%S (%a)'
