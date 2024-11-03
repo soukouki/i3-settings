@@ -3,8 +3,8 @@
 <channel name="xfce4-terminal" version="1.0">
   <property name="misc-always-show-tabs" type="bool" value="false"/>
   <property name="misc-bell" type="bool" value="false"/>
-  <property name="color-foreground" type="string" value="#dcdcdc"/>
-  <property name="color-background" type="string" value="#2c2c2c"/>
+  <property name="color-foreground" type="string" value="#ffffffffffff"/>
+  <property name="color-background" type="string" value="#000000000000"/>
   <property name="color-background-vary" type="bool" value="false"/>
   <property name="color-use-theme" type="bool" value="false"/>
   <property name="color-cursor-foreground" type="string" value=""/>
@@ -20,7 +20,7 @@
   <property name="tab-activity-color" type="string" value="#aa0000"/>
   <property name="font-name" type="string" value="JetBrainsMono Nerd Font 9"/>
   <property name="text-blink-mode" type="string" value="TERMINAL_TEXT_BLINK_MODE_ALWAYS"/>
-  <property name="background-mode" type="string" value="TERMINAL_BACKGROUND_IMAGE"/>
+  <property name="background-mode" type="string" value="TERMINAL_BACKGROUND_TRANSPARENT"/>
   <property name="background-image-shading" type="double" value="0.5"/>
   <property name="command-login-shell" type="bool" value="false"/>
   <property name="run-custom-command" type="bool" value="false"/>
@@ -32,4 +32,8 @@
   <property name="misc-copy-on-select" type="bool" value="false"/>
   <property name="misc-toolbar-default" type="bool" value="false"/>
   <property name="misc-menubar-default" type="bool" value="false"/>
+  <property name="background-darkness" type="double" value="0.5"/>
+  <property name="misc-confirm-close" type="bool" value="false"/>
+  <property name="misc-default-geometry" type="string" value="80x24"/>
+  <property name="misc-borders-default" type="bool" value="true"/>
 </channel>
